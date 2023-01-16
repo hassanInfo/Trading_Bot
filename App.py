@@ -147,7 +147,8 @@ def apply(model_name, data, title):
     # show_eval_result(model_name, test_result, initial_offset)
     st.write(visualize(data, history, title=title+str(format_position(test_result))))
 
-st.markdown('<h1 align="center">Welcome to the Trading world we are here to provide you the best Market order</h1>', unsafe_allow_html=True)
+st.markdown('<h1 align="center">Welcome to the Trading world </h1>', unsafe_allow_html=True)
+st.markdown('<h1 align="center">We are here to provide you the best Market order </h1>', unsafe_allow_html=True)
 st.markdown('<b>Please select a currency or a stock:', unsafe_allow_html=True)
 option = st.selectbox(
     '',
