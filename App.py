@@ -127,7 +127,6 @@ def visualize(df, history, title="trading session"):
         y=alt.Y('position', axis=alt.Axis(format='$.2f', title='Price'), scale=scale),
         shape='action',
         color='action',
-        filled=True
     ).interactive(bind_y=False)
 
     # merge the two charts
