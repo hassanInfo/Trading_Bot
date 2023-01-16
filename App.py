@@ -147,7 +147,7 @@ def apply(model_name, data, title):
 
 st.title('Welcome to the Trading world we are here to provide you the best Market order')
 option = st.selectbox(
-    'Select:',
+    '<b>Please select a currency or a stock:',
     ('Bitcoin', 'Etherium', 'Google', 'Apple')
 )
 
