@@ -148,7 +148,7 @@ def apply(model_name, data, title):
     st.write(visualize(data, history, title=title+str(format_position(test_result))))
 
 st.markdown('<h1 align="center" style="color:#3AFF00;">Welcome to the Trading world !!!</h1>', unsafe_allow_html=True)
-st.markdown('<h1 align="center">We are here to provide you the best Market order </h1>', unsafe_allow_html=True)
+st.markdown('<h1 align="center" style="color:#3AFF00;">We are here to provide you the best Market order </h1>', unsafe_allow_html=True)
 st.markdown('<h1 align="center"></h1>', unsafe_allow_html=True)
 st.markdown('<h1 align="center"></h1>', unsafe_allow_html=True)
 st.markdown('<h1 align="center"></h1>', unsafe_allow_html=True)
