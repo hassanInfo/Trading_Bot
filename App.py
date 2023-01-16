@@ -125,6 +125,7 @@ def visualize(df, history, title="trading session"):
     ).encode(
         x=alt.X('date:T', axis=alt.Axis(title='Date')),
         y=alt.Y('position', axis=alt.Axis(format='$.2f', title='Price'), scale=scale),
+        shape='action',
         color='action'
     ).interactive(bind_y=False)
 
