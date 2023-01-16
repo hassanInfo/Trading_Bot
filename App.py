@@ -151,10 +151,10 @@ option = st.selectbox(
 )
 
 if option=='Bitcoin':
-    apply('model_t_dqn_BTC-USD_epidodes_50_30', data_bitcoin, 'BITCOIN Currency')
+    apply('model_t_dqn_BTC-USD_epidodes_50_30', data_bitcoin, 'BITCOIN Currency ')
 elif option=='Etherium':
-    apply('100_iter_change_target/model_t_dqn_ETH-USD_epidodes_50_20', data_etherium, 'ETHERIUM Currency')
+    apply('100_iter_change_target/model_t_dqn_ETH-USD_epidodes_50_20', data_etherium, 'ETHERIUM Currency ')
 elif option=='Google':
-    apply('model_dqn_GOOG_epidodes_50_40', data_google, 'GOOGLE Stocks')
+    apply('Model_dqn_GOOG_epidodes_50_40', data_google, 'GOOGLE Stocks ')
 else:
-    apply('model_dqn_AAPL_epidodes_50_30', data_apple, 'APPLE Stocks')
+    apply('model_dqn_AAPL_epidodes_50_20', data_apple, 'APPLE Stocks ')
