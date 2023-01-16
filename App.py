@@ -150,6 +150,8 @@ def apply(model_name, data, title):
 st.markdown('<h1 align="center">Welcome to the Trading world</h1>', unsafe_allow_html=True)
 st.markdown('<h1 align="center">We are here to provide you the best Market order </h1>', unsafe_allow_html=True)
 st.markdown('<h1 align="center"></h1>', unsafe_allow_html=True)
+st.markdown('<h1 align="center"></h1>', unsafe_allow_html=True)
+st.markdown('<h1 align="center"></h1>', unsafe_allow_html=True)
 option = st.selectbox(
     'Please select a currency or a stock:',
     ('Bitcoin', 'Etherium', 'Google', 'Apple')
