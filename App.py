@@ -151,7 +151,7 @@ st.markdown('<h1 align="center" style="color:#3AFF00;">Welcome to the Trading wo
 st.markdown('<h1 align="center" style="color:#3AFF00;">We are here to provide you the best Market order </h1>', unsafe_allow_html=True)
 st.markdown('<h1 align="center"></h1>', unsafe_allow_html=True)
 st.markdown('<h1 align="center"></h1>', unsafe_allow_html=True)
-st.markdown('<h1 align="center"></h1>', unsafe_allow_html=True)
+#st.markdown('<h1 align="center"></h1>', unsafe_allow_html=True)
 st.markdown('<h4 align="center">Please select a currency or a stock:</h4>', unsafe_allow_html=True)
 option = st.selectbox(
     '',
