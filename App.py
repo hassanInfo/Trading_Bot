@@ -11,6 +11,7 @@ import coloredlogs
 from trading_bot.utils import show_eval_result, switch_k_backend_device, get_stock_data
 from trading_bot.methods import evaluate_model
 from trading_bot.agent import Agent
+st.set_page_config(layout="wide")
 
 # from datetime import timedelta
 
