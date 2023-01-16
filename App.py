@@ -157,4 +157,4 @@ elif option=='Etherium':
 elif option=='Google':
     apply('Model_dqn_GOOG_epidodes_50_40', data_google, 'GOOGLE Stocks ')
 else:
-    apply('model_dqn_AAPL_epidodes_50_20', data_apple, 'APPLE Stocks ')
+    apply('model_dqn_AAPL_epidodes_50_50', data_apple, 'APPLE Stocks ')
