@@ -131,7 +131,7 @@ def visualize(df, history, title="trading session"):
     ).interactive(bind_y=False)
 
     # merge the two charts
-    chart = alt.layer(actual, points, title=title).properties(height=300, width=1000)
+    chart = alt.layer(actual, points, title=title).properties(height=300, width='container')
     
     return chart
 
