@@ -133,6 +133,11 @@ def visualize(df, history, title="trading session"):
     
     return chart
 
+col1, col2, col3 = st.beta_columns([1,6,1])
+
+with col1:
+st.write("")
+
 def apply(model_name, data, title):
     window_size = 10
     debug = True
@@ -143,7 +148,11 @@ def apply(model_name, data, title):
     initial_offset = test_data[1] - test_data[0]
     test_result, history = evaluate_model(agent, test_data, window_size, debug)
     # show_eval_result(model_name, test_result, initial_offset)
-    st.write(visualize(data, history, title=title+str(format_position(test_result))))
+    with col2:
+        st.write(visualize(data, history, title=title+str(format_position(test_result))))
+
+with col3:
+st.write("")
 
 st.title('Welcome to the Trading world we are here to provide you the best Market order')
 st.markdown('<b>Please select a currency or a stock:', unsafe_allow_html=True)
