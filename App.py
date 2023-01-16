@@ -149,7 +149,7 @@ def apply(model_name, data, title):
     test_result, history = evaluate_model(agent, test_data, window_size, debug)
     # show_eval_result(model_name, test_result, initial_offset)
     with col2:
-        st.write(visualize(data, history, title=title+str(format_position(test_result))))
+    st.write(visualize(data, history, title=title+str(format_position(test_result))))
 
 with col3:
 st.write("")
