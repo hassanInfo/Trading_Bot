@@ -146,8 +146,8 @@ def apply(model_name, data, title):
     st.write(visualize(data, history, title=title+str(format_position(test_result))))
 
 st.title('Welcome to the Trading world we are here to provide you the best Market order')
+st.markdown('<b>Please select a currency or a stock:', unsafe_allow_html=False)
 option = st.selectbox(
-    '<b>Please select a currency or a stock:',
     ('Bitcoin', 'Etherium', 'Google', 'Apple')
 )
 
