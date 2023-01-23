@@ -31,7 +31,7 @@ class Agent:
     def __init__(self, state_size, strategy="t-dqn", reset_every=1000, pretrained=False, model_name=None):
         self.strategy = strategy
 
-        # agent config
+        # Agent config
         self.state_size = state_size    	# normalized previous days
         self.action_size = 3           		# [sit, buy, sell]
         self.model_name = model_name
@@ -39,7 +39,7 @@ class Agent:
         self.memory = deque(maxlen=10000)
         self.first_iter = True
 
-        # model config
+        # Model config
         self.model_name = model_name
         self.gamma = 0.95 # affinity for long term reward
         self.epsilon = 1.0
@@ -47,7 +47,7 @@ class Agent:
         self.epsilon_decay = 0.995
         self.learning_rate = 0.001
         self.loss = huber_loss
-        self.custom_objects = {"huber_loss": huber_loss}  # important for loading the model from memory
+        self.custom_objects = {"huber_loss": huber_loss}  # Important for loading the model from memory
         self.optimizer = Adam(learning_rate=self.learning_rate)
 
         if pretrained and self.model_name is not None:
@@ -55,8 +55,8 @@ class Agent:
         else:
             self.model = self._model()
 
-        # strategy config
-        if self.strategy in ["t-dqn", "double-dqn"]:
+        # Strategy config
+        if self.strategy=="t-dqn":
             self.n_iter = 1
             self.reset_every = reset_every
 
@@ -87,14 +87,14 @@ class Agent:
         """
         if self.first_iter:
             self.first_iter = False
-            return 1 # make a definite buy on the first iter
+            return 1 # Make a definite buy on the first iter
 
-        # take random action in order to diversify experience at the beginning (grediant policy)
+        # Take random action in order to diversify experience at the beginning (grediant policy)
         if not is_eval and random.random() <= self.epsilon:
-            return random.randrange(self.action_size) # take a random action (exploration)
+            return random.randrange(self.action_size) # Take a random action (exploration)
 
-        action_probs = self.model.predict(state) # return array like that array([[0.05060915, 0.04315119, 0.00246504]], dtype=float32)
-        return np.argmax(action_probs[0]) # take the index of the maximmun number of the array which mean the action index (exploitation)
+        action_probs = self.model.predict(state) # Return array like that array([[0.05060915, 0.04315119, 0.00246504]], dtype=float32)
+        return np.argmax(action_probs[0]) # Take the index of the maximmun number of the array which mean the action index (exploitation)
 
     def train_experience_replay(self, batch_size):
         """Train on previous experiences in memory
@@ -108,33 +108,32 @@ class Agent:
                 if done:
                     target = reward
                 else:
-                    # approximate deep q-learning equation
+                    # Approximate deep q-learning equation
                     target = reward + self.gamma * np.amax(self.model.predict(next_state)[0])
 
-                # estimate q-values based on current state
+                # Estimate q-values based on current state
                 q_values = self.model.predict(state)
-                # update the target for current action based on discounted reward
+                # Update the target for current action based on discounted reward
                 q_values[0][action] = target
 
                 X_train.append(state[0])
                 y_train.append(q_values[0])
 
-        # DQN with fixed targets
         elif self.strategy == "t-dqn":
             if self.n_iter % self.reset_every == 0:
-                # reset target model weights
+                # Reset target model weights
                 self.target_model.set_weights(self.model.get_weights())
 
             for state, action, reward, next_state, done in mini_batch:
                 if done:
                     target = reward
                 else:
-                    # approximate deep q-learning equation with fixed targets
+                    # Approximate deep q-learning equation with target net
                     target = reward + self.gamma * np.amax(self.target_model.predict(next_state)[0])
 
                 # estimate q-values based on current state
                 q_values = self.model.predict(state)
-                # update the target for current action based on discounted reward
+                # Update the target for current action based on discounted reward
                 q_values[0][action] = target
 
                 X_train.append(state[0])
@@ -145,14 +144,13 @@ class Agent:
         else:
             raise NotImplementedError()
 
-        # update q-function parameters based on huber loss gradient
+        # Update q-function parameters based on huber loss gradient
         loss = self.model.fit(
             np.array(X_train), np.array(y_train),
             epochs=1, verbose=0
         ).history["loss"][0]
 
-        # as the training goes on we want the agent to
-        # make less random and more optimal decisions
+        # As the training goes on we want the agent to make less random and more optimal decisions
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
 
@@ -163,3 +161,4 @@ class Agent:
 
     def load(self):
         return load_model("models/" + self.model_name, custom_objects=self.custom_objects)
+    
