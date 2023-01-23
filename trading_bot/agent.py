@@ -26,7 +26,7 @@ def huber_loss(y_true, y_pred, clip_delta=1.0):
 
 
 class Agent:
-    """ Stock Trading Bot """
+    """ Stock/Currency Trading Bot """
 
     def __init__(self, state_size, strategy="t-dqn", reset_every=1000, pretrained=False, model_name=None):
         self.strategy = strategy
