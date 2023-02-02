@@ -59,7 +59,7 @@ pickleshare==0.7.5
 Pillow==9.4.0
 platformdirs==2.6.2
 prompt-toolkit==3.0.36
-protobuf==3.20.0
+protobuf
 psutil==5.9.4
 pure-eval==0.2.2
 pyarrow==10.0.1
@@ -75,7 +75,6 @@ pyspark==3.3.1
 python-dateutil==2.8.2
 pytz==2022.7.1
 pytz-deprecation-shim==0.1.0.post0
-pywin32==305
 pyzmq==25.0.0
 requests==2.28.2
 requests-oauthlib==1.3.1
@@ -87,13 +86,13 @@ semver==2.13.0
 six==1.16.0
 smmap==5.0.0
 stack-data==0.6.2
-streamlit==1.15.0
-tensorboard==2.11.2
+streamlit
+tensorboard
 tensorboard-data-server==0.6.1
 tensorboard-plugin-wit==1.8.1
-tensorflow==2.11.0
+tensorflow
 tensorflow-estimator==2.11.0
-tensorflow-intel==2.11.0
+tensorflow-intel
 tensorflow-io-gcs-filesystem==0.29.0
 termcolor==2.2.0
 toml==0.10.2
