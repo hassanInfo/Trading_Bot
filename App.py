@@ -62,6 +62,7 @@ data_google['date'] = pd.to_datetime(data_google['date'], infer_datetime_format=
 data_apple['date'] = pd.to_datetime(data_apple['date'], infer_datetime_format=True)
 
 data_bitcoin = data_bitcoin[data_bitcoin["actual"].str.contains("Dividend") == False].reset_index(drop=True)
+data_bitcoin = data_bitcoin[data_bitcoin["actual"].str.contains("-") == False].reset_index(drop=True)
 data_bitcoin.loc[-1] = [data_bitcoin['date'].iloc[0]+datetime.timedelta(days=1), float('nan')] # adding a row
 data_bitcoin.index = data_bitcoin.index+1 # shifting index
 data_bitcoin.sort_index(inplace=True)
@@ -69,6 +70,7 @@ data_bitcoin = data_bitcoin.iloc[::-1]
 data_bitcoin = data_bitcoin.astype({'actual': float})
 
 data_etherium = data_etherium[data_etherium["actual"].str.contains("Dividend") == False].reset_index(drop=True)
+data_etherium = data_etherium[data_etherium["actual"].str.contains("-") == False].reset_index(drop=True)
 data_etherium.loc[-1] = [data_etherium['date'].iloc[0]+datetime.timedelta(days=1), float('nan')] # adding a row
 data_etherium.index = data_etherium.index+1 # shifting index
 data_etherium.sort_index(inplace=True)
@@ -76,6 +78,7 @@ data_etherium = data_etherium.iloc[::-1]
 data_etherium = data_etherium.astype({'actual': float})
 
 data_google = data_google[data_google["actual"].str.contains("Dividend") == False].reset_index(drop=True)
+data_google = data_google[data_google["actual"].str.contains("-") == False].reset_index(drop=True)
 if not check_consecutive_datetimes(list(data_google['date'].iloc[:5])):
     data_google.loc[-1] = [data_google['date'].iloc[0]+datetime.timedelta(days=1), float('nan')] # adding a row
 else:
@@ -86,6 +89,7 @@ data_google = data_google.iloc[::-1]
 data_google = data_google.astype({'actual': float})
 
 data_apple = data_apple[data_apple["actual"].str.contains("Dividend") == False].reset_index(drop=True)
+data_apple = data_apple[data_apple["actual"].str.contains("-") == False].reset_index(drop=True)
 if not check_consecutive_datetimes(list(data_apple['date'].iloc[:5])):
     data_apple.loc[-1] = [data_apple['date'].iloc[0]+datetime.timedelta(days=1), float('nan')] # adding a row
 else:
