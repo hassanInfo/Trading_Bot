@@ -2,7 +2,7 @@
 
 ## Overview:
 
-This project implements a Stock/Currency Trading Bot, trained using Deep Reinforcement Learning, specifically Deep Q-learning. Implementation is kept simple for learning purposes.
+This project implements a Stock/Currency Trading Bot, trained using Deep Reinforcement Learning, specifically Deep Q-Network. Implementation is kept simple for learning purposes.
 
 ## Introduction:
 
